@@ -7,6 +7,7 @@
     </header>
     <main>
       <Hero />
+      <Highlights />
     </main>
     <footer></footer>
   </div>
