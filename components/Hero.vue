@@ -76,7 +76,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="nav-height relative w-full">
+  <section class="nav-height container relative mx-auto w-full px-5 sm:px-10">
     <div class="flex h-5/6 w-full flex-col items-center justify-center">
       <p id="hero" class="hero-title">iPhone 15 Pro</p>
       <div class="w-full">

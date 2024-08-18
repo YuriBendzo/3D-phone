@@ -1,10 +1,14 @@
 <script setup>
 // === IMPORTS ===
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import highlightFirstVideo from "/assets/videos/highlight-first.mp4";
 import highlightSecondVideo from "/assets/videos/hightlight-third.mp4";
 import highlightThirdVideo from "/assets/videos/hightlight-sec.mp4";
 import highlightFourthVideo from "/assets/videos/hightlight-fourth.mp4";
+
+// REGISTER SCROLLTRIGGER PLUGIN
+gsap.registerPlugin(ScrollTrigger);
 
 // === REFS ===
 const videoRef = ref([]);
@@ -65,20 +69,37 @@ const useGSAP = () => {
     ease: "power2.inOut",
   });
 
-  const currentVideoRef = videoRef.value[video.videoId];
-  if (currentVideoRef) {
-    gsap.to(currentVideoRef, {
-      scrollTrigger: {
+  hightlightsSlides.forEach((slide, index) => {
+    const currentVideoRef = videoRef.value[index];
+    if (currentVideoRef) {
+      ScrollTrigger.create({
         trigger: currentVideoRef,
-        toggleActions: "restart none none none",
-      },
-      onComplete: () => {
-        video.startPlay = true;
-        video.isPlaying = true;
-        currentVideoRef.play();
-      },
-    });
-  }
+        start: "top 80%",
+        onEnter: () => {
+          if (video.videoId === index && !(video.isLastVideo && video.isEnd)) {
+            video.startPlay = true;
+            video.isPlaying = true;
+            currentVideoRef.play();
+          }
+        },
+        onEnterBack: () => {
+          if (video.videoId === index && !(video.isLastVideo && video.isEnd)) {
+            video.startPlay = true;
+            video.isPlaying = true;
+            currentVideoRef.play();
+          }
+        },
+        onLeave: () => {
+          currentVideoRef.pause();
+          video.isPlaying = false;
+        },
+        onLeaveBack: () => {
+          currentVideoRef.pause();
+          video.isPlaying = false;
+        },
+      });
+    }
+  });
 };
 
 const progressBarAnimation = () => {
@@ -142,6 +163,7 @@ const handleProcess = (type, i = null) => {
     case "video-reset":
       video.isLastVideo = false;
       video.videoId = 0;
+      video.isEnd = false;
       break;
     case "play":
       video.isPlaying = true;
@@ -170,6 +192,7 @@ const handleLoadedMetaData = (i, e) => {
 
 // === WATCHERS ===
 watch([() => video.isEnd, () => video.videoId], useGSAP);
+
 watch(
   [
     () => video.startPlay,
@@ -187,6 +210,7 @@ watch(
     }
   },
 );
+
 watch([() => video.videoId, () => video.startPlay], progressBarAnimation);
 
 // === MOUNT ===
@@ -248,7 +272,7 @@ onUnmounted(() => {
         v-for="(_, i) in videoRef"
         :key="i"
         :ref="(el) => (videoDivRef[i] = el)"
-        class="relative mx-2 size-3 cursor-pointer rounded-full bg-gray-200"
+        class="relative mx-2 size-3 rounded-full bg-gray-200"
       >
         <span
           class="absolute size-full rounded-full"
