@@ -15,6 +15,7 @@
     "gsap": "^3.12.5",
     "nuxt": "^3.12.4",
     "nuxt-icons": "^3.2.1",
+    "three": "^0.167.1",
     "vue": "latest"
   },
   "devDependencies": {

@@ -8,6 +8,7 @@
     <main>
       <Hero />
       <Highlights />
+      <Model />
     </main>
     <footer></footer>
   </div>

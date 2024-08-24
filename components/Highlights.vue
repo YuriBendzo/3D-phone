@@ -35,7 +35,7 @@ onMounted(() => {
     id="highlights"
     class="size-full overflow-hidden bg-zinc px-5 py-20 sm:px-10 sm:py-32"
   >
-    <div class="screen-max-width container mx-auto">
+    <div class="container mx-auto">
       <div class="mb-12 w-full items-end justify-between md:flex">
         <h1 id="title" class="section-heading">Get the highlights.</h1>
         <div class="flex flex-wrap items-end gap-5">
