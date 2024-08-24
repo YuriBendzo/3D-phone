@@ -133,11 +133,17 @@ const animateScaleTransition = (size) => {
     <canvas ref="canvas" class="size-full"></canvas>
 
     <!-- iPhone Model -->
-    <IPhone
-      :scale="modelScale"
-      :item="props.item"
-      :size="props.size"
-      :group="modelGroup"
-    />
+    <ClientOnly>
+      <IPhone
+        :scale="modelScale"
+        :item="props.item"
+        :size="props.size"
+        :group="modelGroup"
+      />
+
+      <template #fallback>
+        <Loader />
+      </template>
+    </ClientOnly>
   </div>
 </template>
