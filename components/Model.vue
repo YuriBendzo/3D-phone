@@ -50,9 +50,6 @@ const model = ref({
   img: yellowImg,
 });
 
-// camera control for the model view
-const cameraControl = ref();
-
 // model
 const model3D = ref(new THREE.Group());
 
@@ -91,9 +88,7 @@ onMounted(() => {
         <div class="relative h-[75vh] w-full overflow-hidden md:h-[90vh]">
           <ModelView
             gsap-type="view1"
-            :index="1"
             :group-ref="model3D"
-            :control-ref="cameraControl"
             :set-rotation-state="(rotationState) => (rotation = rotationState)"
             :item="model"
             :size="size"

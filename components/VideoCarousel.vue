@@ -7,7 +7,6 @@ import highlightSecondVideo from "/assets/videos/hightlight-third.mp4";
 import highlightThirdVideo from "/assets/videos/hightlight-sec.mp4";
 import highlightFourthVideo from "/assets/videos/hightlight-fourth.mp4";
 
-// REGISTER SCROLLTRIGGER PLUGIN
 gsap.registerPlugin(ScrollTrigger);
 
 // === REFS ===

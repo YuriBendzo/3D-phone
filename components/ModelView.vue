@@ -1,4 +1,5 @@
 <script setup>
+// === IMPORT ===
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import Lights from "./Lights.vue";
@@ -11,15 +12,7 @@ const props = defineProps({
     type: String,
     default: "view1",
   },
-  index: {
-    type: Number,
-    default: 1,
-  },
   groupRef: {
-    type: Object,
-    default: {},
-  },
-  controlRef: {
     type: Object,
     default: {},
   },
@@ -93,14 +86,6 @@ onMounted(() => {
   });
 });
 
-// === WATCHERS ===
-watch(
-  () => props.size,
-  (newSize) => {
-    animateScaleTransition(newSize);
-  },
-);
-
 // === FUNCTIONS ===
 const updateModelScale = (size) => {
   const scale = size === "large" ? 24 : 21;
@@ -117,6 +102,14 @@ const animateScaleTransition = (size) => {
     ease: "power1.inOut",
   });
 };
+
+// === WATCHERS ===
+watch(
+  () => props.size,
+  (newSize) => {
+    animateScaleTransition(newSize);
+  },
+);
 </script>
 
 <template>
@@ -124,7 +117,6 @@ const animateScaleTransition = (size) => {
     ref="container"
     :id="props.gsapType"
     class="absolute size-full"
-    :class="{ '-right-full': props.index === 2 }"
   >
     <!-- Lights -->
     <Lights :scene="scene" />
@@ -135,7 +127,6 @@ const animateScaleTransition = (size) => {
     <!-- iPhone Model -->
     <ClientOnly>
       <IPhone
-        :scale="modelScale"
         :item="props.item"
         :size="props.size"
         :group="modelGroup"

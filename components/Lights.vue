@@ -104,7 +104,3 @@ onMounted(() => {
   props.scene.add(lightGroup);
 });
 </script>
-
-<template>
-  <!-- The lights will be added directly to the scene in the setup function -->
-</template>

@@ -1,14 +1,11 @@
 <script setup>
+// === IMPORT ===
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 
 // === PROPS ===
 const props = defineProps({
-  scale: {
-    type: Array,
-    default: () => [1, 1, 1],
-  },
   item: {
     type: Object,
     default: () => ({}),
@@ -23,11 +20,14 @@ const props = defineProps({
   },
 });
 
-// Refs
+// === REFS ===
 const materials = ref({});
 const nodes = ref({});
 
-// Functions
+// === VARIABLES ===
+const scale = ref([1, 1, 1]);
+
+// === FUNCTIONS ===
 const loadModel = () => {
   const loader = new GLTFLoader();
   const dracoLoader = new DRACOLoader();
@@ -55,7 +55,7 @@ const loadModel = () => {
       });
 
       props.group.add(gltf.scene);
-      gltf.scene.scale.set(...props.scale); // Apply scale
+      gltf.scene.scale.set(...scale.value);
       updateMaterials();
     },
     undefined,
@@ -67,8 +67,6 @@ const loadModel = () => {
 
 const updateMaterials = () => {
   const textureLoader = new THREE.TextureLoader();
-
-  console.log(materials.value);
 
   const texture = textureLoader.load(props.item.img);
 
@@ -94,12 +92,12 @@ const updateMaterials = () => {
   }
 };
 
-// Lifecycle hooks
+// === MOUNT ===
 onMounted(() => {
   loadModel();
 });
 
-// Watchers
+// === WATCHERS ===
 watch(
   () => props.item,
   () => {
@@ -108,16 +106,7 @@ watch(
   { deep: true },
 );
 
-watch(
-  () => props.scale,
-  () => {
-    if (props.group.children.length > 0) {
-      props.group.children[0].scale.set(...props.scale); // Update scale if changed
-    }
-  },
-);
-
-// Cleanup
+// === UNMOUNT ===
 onUnmounted(() => {
   // Optional cleanup
   Object.values(materials.value).forEach((material) => material.dispose());
@@ -126,7 +115,3 @@ onUnmounted(() => {
   });
 });
 </script>
-
-<template>
-  <!-- The model will be added to the group passed via props -->
-</template>
