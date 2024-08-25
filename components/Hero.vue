@@ -7,8 +7,6 @@ import heroFallbackImage from "/assets/images/hero-fallback.webp";
 import smallHeroFallbackImage from "/assets/images/smallHero-fallback.webp";
 
 // === REFS ===
-const main = ref(null);
-const ctx = ref(null);
 const videoElement = ref(null);
 
 // === VARIABLES ===
@@ -37,17 +35,15 @@ onMounted(() => {
   handleVideoSrcSet();
   window.addEventListener("resize", handleVideoSrcSet);
 
-  ctx.value = gsap.context(() => {
-    gsap.to("#hero", {
-      opacity: 1,
-      delay: 1.5,
-    });
-    gsap.to("#cta", {
-      opacity: 1,
-      y: -50,
-      delay: 1.5,
-    });
-  }, main.value);
+  gsap.to("#hero", {
+    opacity: 1,
+    delay: 1.5,
+  });
+  gsap.to("#cta", {
+    opacity: 1,
+    y: -50,
+    delay: 1.5,
+  });
 
   // Set up video playback with a timeout to handle autoplay issues
   const video = videoElement.value;
@@ -71,7 +67,6 @@ onMounted(() => {
 // === UNMOUNT ===
 onUnmounted(() => {
   window.removeEventListener("resize", handleVideoSrcSet);
-  ctx.value.revert();
 });
 </script>
 
