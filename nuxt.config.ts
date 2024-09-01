@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/svg+xml",
-          href: "/apple.ico",
+          href: "/apple.svg",
         },
       ],
       title: "Apple iPhone",

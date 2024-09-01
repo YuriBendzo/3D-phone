@@ -2,32 +2,23 @@
 
 <template>
   <nav class="flex items-center justify-between py-5 text-gray">
-    <NuxtLink to="/">
-      <nuxt-icon
-        class="size-6 transition-colors hover:text-white lg:size-11"
-        name="apple"
-      />
-    </NuxtLink>
+    <nuxt-icon
+      class="size-6 cursor-pointer transition-colors hover:text-white lg:size-11"
+      name="apple"
+    />
+
     <ul class="hidden items-center gap-10 lg:flex">
       <li>
-        <NuxtLink class="transition-colors hover:text-white" to="/">
-          Store
-        </NuxtLink>
+        <p class="cursor-pointer transition-colors hover:text-white">Store</p>
       </li>
       <li>
-        <NuxtLink class="transition-colors hover:text-white" to="/">
-          Mac
-        </NuxtLink>
+        <p class="cursor-pointer transition-colors hover:text-white">Mac</p>
       </li>
       <li>
-        <NuxtLink class="transition-colors hover:text-white" to="/">
-          iPhone
-        </NuxtLink>
+        <p class="cursor-pointer transition-colors hover:text-white">iPhone</p>
       </li>
       <li>
-        <NuxtLink class="transition-colors hover:text-white" to="/">
-          Support
-        </NuxtLink>
+        <p class="cursor-pointer transition-colors hover:text-white">Support</p>
       </li>
     </ul>
     <div class="flex items-center gap-5 md:gap-10">

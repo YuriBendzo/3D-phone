@@ -31,7 +31,7 @@ const isOpen = ref(false);
 
   <Teleport to="body">
     <TransitionRoot appear :show="isOpen" as="template">
-      <Dialog as="div" class="relative z-10">
+      <Dialog as="div" class="absolute bottom-0 z-10">
         <TransitionChild
           as="template"
           enter="duration-300 ease-out"
@@ -47,16 +47,16 @@ const isOpen = ref(false);
           >
             <ul class="flex flex-col gap-2 text-3xl font-semibold">
               <li>
-                <NuxtLink class="linked" to="/"> Store </NuxtLink>
+                <p class="linked outline-none">Store</p>
               </li>
               <li>
-                <NuxtLink class="linked" to="/"> Mac </NuxtLink>
+                <p class="linked">Mac</p>
               </li>
               <li>
-                <NuxtLink class="linked" to="/"> iPhone </NuxtLink>
+                <p class="linked">iPhone</p>
               </li>
               <li>
-                <NuxtLink class="linked" to="/"> Support </NuxtLink>
+                <p class="linked">Support</p>
               </li>
             </ul>
           </DialogPanel>

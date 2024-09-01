@@ -104,11 +104,12 @@ onUnmounted(() => {
       </div>
     </div>
     <div id="cta" class="flex translate-y-20 flex-col items-center opacity-0">
-      <NuxtLink
-        to="#highlight"
+      <button
+        type="button"
         class="my-5 rounded-3xl border-2 border-transparent bg-blue px-5 py-2 text-xl font-medium transition-all hover:border-blue hover:bg-transparent hover:text-blue active:scale-75"
-        >Buy</NuxtLink
       >
+        Buy
+      </button>
       <p class="text-xl">From $199/month or $999</p>
     </div>
   </section>

@@ -44,27 +44,24 @@ onMounted(() => {
           Get the highlights.
         </h1>
         <div class="flex flex-wrap items-end gap-5">
-          <NuxtLink
+          <p
             class="link group flex translate-y-20 cursor-pointer items-center text-xl text-blue opacity-0"
-            to="/"
           >
             <span
               class="relative no-underline after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-0 after:bg-current after:transition-transform group-hover:after:origin-bottom-left group-hover:after:scale-100"
               >Watch the film</span
             >
             <nuxt-icon name="watch" class="ml-2 size-6" />
-          </NuxtLink>
-          <NuxtLink
+          </p>
+          <p
             class="link group flex translate-y-20 cursor-pointer items-center text-xl text-blue opacity-0"
-            to="https://www.apple.com/apple-events/"
-            target="_blank"
           >
             <span
               class="relative no-underline after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-0 after:bg-current after:transition-transform group-hover:after:origin-bottom-left group-hover:after:scale-100"
               >Watch the event</span
             >
             <nuxt-icon name="right" class="ml-2 size-6" />
-          </NuxtLink>
+          </p>
         </div>
       </div>
 
