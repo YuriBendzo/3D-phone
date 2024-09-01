@@ -10,6 +10,7 @@
       <Highlights />
       <Model />
       <Features />
+      <HowItWorks />
     </main>
     <footer></footer>
   </div>

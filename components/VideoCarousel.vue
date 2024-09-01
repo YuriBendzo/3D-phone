@@ -231,8 +231,12 @@ onUnmounted(() => {
       id="slider"
       class="pr-10 sm:pr-20"
     >
-      <div class="video-carousel_container">
-        <div class="flex-center size-full overflow-hidden rounded-3xl bg-black">
+      <div
+        class="relative h-[35vh] w-[88vw] sm:h-[50vh] sm:w-[70vw] md:h-[70vh]"
+      >
+        <div
+          class="flex size-full items-center justify-center overflow-hidden rounded-3xl bg-black"
+        >
           <video
             id="video"
             playsinline

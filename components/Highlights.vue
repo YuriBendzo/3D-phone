@@ -37,9 +37,17 @@ onMounted(() => {
   >
     <div class="container mx-auto">
       <div class="mb-12 w-full items-end justify-between md:flex">
-        <h1 id="title" class="section-heading">Get the highlights.</h1>
+        <h1
+          id="title"
+          class="mb-5 translate-y-20 text-3xl font-medium text-gray opacity-0 md:text-5xl lg:mb-0 lg:text-6xl"
+        >
+          Get the highlights.
+        </h1>
         <div class="flex flex-wrap items-end gap-5">
-          <NuxtLink class="link group" to="/">
+          <NuxtLink
+            class="link group flex translate-y-20 cursor-pointer items-center text-xl text-blue opacity-0"
+            to="/"
+          >
             <span
               class="relative no-underline after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-0 after:bg-current after:transition-transform group-hover:after:origin-bottom-left group-hover:after:scale-100"
               >Watch the film</span
@@ -47,7 +55,7 @@ onMounted(() => {
             <nuxt-icon name="watch" class="ml-2 size-6" />
           </NuxtLink>
           <NuxtLink
-            class="link group"
+            class="link group flex translate-y-20 cursor-pointer items-center text-xl text-blue opacity-0"
             to="https://www.apple.com/apple-events/"
             target="_blank"
           >

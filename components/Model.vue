@@ -81,8 +81,13 @@ onMounted(() => {
 
 <template>
   <section class="bg-zinc px-5 py-20 sm:px-10 sm:py-32">
-    <div>
-      <h1 id="heading" class="section-heading">Take a closer look.</h1>
+    <div class="container mx-auto">
+      <h1
+        id="heading"
+        class="mb-5 translate-y-20 text-3xl font-medium text-gray opacity-0 md:text-5xl lg:mb-0 lg:text-6xl"
+      >
+        Take a closer look.
+      </h1>
 
       <div class="mt-5 flex flex-col items-center">
         <div class="relative h-[75vh] w-full overflow-hidden md:h-[90vh]">
@@ -100,7 +105,9 @@ onMounted(() => {
           </p>
 
           <div class="flex items-center justify-center">
-            <ul class="color-container">
+            <ul
+              class="flex items-center justify-center rounded-full bg-gray-300 px-4 py-4 backdrop-blur"
+            >
               <li
                 v-for="(item, i) in models"
                 :key="i"
@@ -110,14 +117,16 @@ onMounted(() => {
               ></li>
             </ul>
 
-            <div class="size-btn-container">
+            <div
+              class="ml-3 flex items-center justify-center gap-1 rounded-full bg-gray-300 p-1 backdrop-blur"
+            >
               <button
                 v-for="screenSize in sizes"
                 :key="screenSize"
                 @click="handleSizeChange(screenSize.value)"
               >
                 <span
-                  class="size-btn"
+                  class="flex size-10 items-center justify-center rounded-full bg-white text-sm text-black transition-all"
                   :style="{
                     backgroundColor:
                       size === screenSize.value ? 'white' : 'transparent',

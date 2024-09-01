@@ -71,9 +71,16 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="nav-height container relative mx-auto w-full px-5 sm:px-10">
+  <section
+    class="container relative mx-auto h-[calc(100vh-68px)] w-full px-5 sm:px-10 lg:h-[calc(100vh-84px)]"
+  >
     <div class="flex h-5/6 w-full flex-col items-center justify-center">
-      <p id="hero" class="hero-title">iPhone 15 Pro</p>
+      <p
+        id="hero"
+        class="text-center text-3xl font-semibold text-gray-100 opacity-0 max-md:mb-10"
+      >
+        iPhone 15 Pro
+      </p>
       <div class="w-full">
         <video
           ref="videoElement"
@@ -97,7 +104,11 @@ onUnmounted(() => {
       </div>
     </div>
     <div id="cta" class="flex translate-y-20 flex-col items-center opacity-0">
-      <NuxtLink to="#highlight" class="btn">Buy</NuxtLink>
+      <NuxtLink
+        to="#highlight"
+        class="my-5 rounded-3xl border-2 border-transparent bg-blue px-5 py-2 text-xl font-medium transition-all hover:border-blue hover:bg-transparent hover:text-blue active:scale-75"
+        >Buy</NuxtLink
+      >
       <p class="text-xl">From $199/month or $999</p>
     </div>
   </section>
