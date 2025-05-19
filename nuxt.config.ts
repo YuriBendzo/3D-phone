@@ -1,13 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // === DEVTOOLS ===
   devtools: { enabled: true },
 
-  // === MODULES ===
+  ssr: false,
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "nuxt-icons"],
-
-  // === APP CONFIGURATION ===
 
   app: {
     head: {
@@ -29,17 +26,11 @@ export default defineNuxtConfig({
     },
   },
 
-  // === IMAGE CONFIGURATION ===
-
   image: {
     format: ["webp"],
   },
 
-  // === CSS CONFIGURATION ===
-
   css: ["~/assets/scss/index.scss"],
-
-  // === TAILWINDCSS CONFIGURATION ===
 
   tailwindcss: {
     cssPath: "~/assets/scss/index.scss",
