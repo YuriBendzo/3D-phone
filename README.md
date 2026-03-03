@@ -2,6 +2,8 @@
 
 A modern, high-performance web experience showcasing the Apple iPhone 15 Pro using cutting-edge 3D web technologies. This project is a clone/tribute designed to demonstrate advanced animations and 3D model integration in a web environment.
 
+## [Live Preview](https://3d-phone.pages.dev/)
+
 ## 🚀 Tech Stack
 
 - **Framework**: [Nuxt 3](https://nuxt.com/) - Chosen for its excellent developer experience, modular architecture, and optimization capabilities.
